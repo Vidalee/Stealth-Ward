@@ -1,7 +1,6 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Diagnostics;
-using System.Management;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;

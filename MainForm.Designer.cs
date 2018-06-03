@@ -29,25 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.endpointComboBox = new MetroFramework.Controls.MetroComboBox();
+            this.observeButton = new MetroFramework.Controls.MetroButton();
+            this.stopObervingButton = new MetroFramework.Controls.MetroButton();
             this.loggingTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.observeAllToggle = new MetroFramework.Controls.MetroToggle();
+            this.oberseAllText = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
-            // metroComboBox1
+            // endpointComboBox
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Items.AddRange(new object[] {
+            this.endpointComboBox.FormattingEnabled = true;
+            this.endpointComboBox.ItemHeight = 24;
+            this.endpointComboBox.Items.AddRange(new object[] {
             "builtin",
             "cookie-jar",
-            "core",
             "data-store",
-            "default",
-            "logging",
             "performance",
-            "Plugin Asset Serving ",
             "Plugin entitlements ",
             "Plugin lol-account-verification ",
             "Plugin lol-acs ",
@@ -134,29 +132,31 @@
             "riotclient ",
             "system ",
             "telemetry "});
-            this.metroComboBox1.Location = new System.Drawing.Point(659, 63);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(354, 30);
-            this.metroComboBox1.TabIndex = 0;
-            this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
+            this.endpointComboBox.Location = new System.Drawing.Point(659, 63);
+            this.endpointComboBox.Name = "endpointComboBox";
+            this.endpointComboBox.Size = new System.Drawing.Size(354, 30);
+            this.endpointComboBox.TabIndex = 0;
+            this.endpointComboBox.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
-            // metroButton1
+            // observeButton
             // 
-            this.metroButton1.Location = new System.Drawing.Point(659, 99);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(178, 28);
-            this.metroButton1.TabIndex = 1;
-            this.metroButton1.Text = "Observe";
-            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.observeButton.Location = new System.Drawing.Point(659, 99);
+            this.observeButton.Name = "observeButton";
+            this.observeButton.Size = new System.Drawing.Size(178, 28);
+            this.observeButton.TabIndex = 1;
+            this.observeButton.Text = "Observe";
+            this.observeButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.observeButton.Click += new System.EventHandler(this.observeButton_Click);
             // 
-            // metroButton2
+            // stopObervingButton
             // 
-            this.metroButton2.Location = new System.Drawing.Point(843, 99);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(170, 28);
-            this.metroButton2.TabIndex = 2;
-            this.metroButton2.Text = "Stop observing";
-            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.stopObervingButton.Location = new System.Drawing.Point(843, 99);
+            this.stopObervingButton.Name = "stopObervingButton";
+            this.stopObervingButton.Size = new System.Drawing.Size(170, 28);
+            this.stopObervingButton.TabIndex = 2;
+            this.stopObervingButton.Text = "Stop observing";
+            this.stopObervingButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.stopObervingButton.Click += new System.EventHandler(this.stopObervingButton_Click);
             // 
             // loggingTextBox
             // 
@@ -171,30 +171,59 @@
             this.loggingTextBox.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.loggingTextBox.Click += new System.EventHandler(this.loggingTextBox_Click);
             // 
+            // observeAllToggle
+            // 
+            this.observeAllToggle.AccessibleName = "observeAllToggle";
+            this.observeAllToggle.AutoSize = true;
+            this.observeAllToggle.Checked = true;
+            this.observeAllToggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.observeAllToggle.Location = new System.Drawing.Point(873, 144);
+            this.observeAllToggle.Name = "observeAllToggle";
+            this.observeAllToggle.Size = new System.Drawing.Size(80, 21);
+            this.observeAllToggle.TabIndex = 4;
+            this.observeAllToggle.Text = "On";
+            this.observeAllToggle.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.observeAllToggle.UseVisualStyleBackColor = true;
+            // 
+            // oberseAllText
+            // 
+            this.oberseAllText.AutoSize = true;
+            this.oberseAllText.Location = new System.Drawing.Point(693, 144);
+            this.oberseAllText.Name = "oberseAllText";
+            this.oberseAllText.Size = new System.Drawing.Size(157, 20);
+            this.oberseAllText.TabIndex = 5;
+            this.oberseAllText.Text = "Observe all the updates";
+            this.oberseAllText.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 457);
+            this.Controls.Add(this.oberseAllText);
+            this.Controls.Add(this.observeAllToggle);
             this.Controls.Add(this.loggingTextBox);
-            this.Controls.Add(this.metroButton2);
-            this.Controls.Add(this.metroButton1);
-            this.Controls.Add(this.metroComboBox1);
+            this.Controls.Add(this.stopObervingButton);
+            this.Controls.Add(this.observeButton);
+            this.Controls.Add(this.endpointComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Resizable = false;
             this.Text = "Stealth Ward";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroComboBox endpointComboBox;
+        private MetroFramework.Controls.MetroButton observeButton;
+        private MetroFramework.Controls.MetroButton stopObervingButton;
         private MetroFramework.Controls.MetroTextBox loggingTextBox;
+        private MetroFramework.Controls.MetroToggle observeAllToggle;
+        private MetroFramework.Controls.MetroLabel oberseAllText;
     }
 }
 
