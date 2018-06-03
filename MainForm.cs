@@ -55,39 +55,40 @@ namespace Stealth_Ward
         {
             if (endpointComboBox.SelectedItem == null)
                 return;
+            String toAdd = null;
             observeAllToggle.Checked = false;
             String endpoint = (String) endpointComboBox.SelectedItem;
             switch (endpoint)
             {
                 case "builtin":
-                    endpoints.Add("async");
-                    endpoints.Add("v1");
-                    endpoints.Add("v2");
-                    endpoints.Add("v3");
+                    toAdd = "async";
+                    toAdd = "v1";
+                    toAdd = "v2";
+                    toAdd = "v3";
                     break;
                 case "cookie-jar":
-                    endpoints.Add("cookie-jar");
+                    toAdd = "cookie-jar";
                     break;
                 case "data-store":
-                    endpoints.Add("data-store");
+                    toAdd = "data-store";
                     break;
                 case "Plugin Manager":
-                    endpoints.Add("plugin-manager");
+                    toAdd = "plugin-manager";
                     break;
                 case "Plugin Patcher":
-                    endpoints.Add("patcher");
+                    toAdd = "patcher";
                     break;
                 case "performance":
-                    endpoints.Add("performance");
+                    toAdd = "performance";
                     break;
                 case "riotclient":
-                    endpoints.Add("riotclient");
+                    toAdd = "riotclient";
                     break;
                 case "system":
-                    endpoints.Add("system");
+                    toAdd = "system";
                     break;
                 case "telemetry":
-                    endpoints.Add("telemetry");
+                    toAdd = "telemetry";
                     break;
             }
 
@@ -96,8 +97,13 @@ namespace Stealth_Ward
                 String[] splitted = endpoint.Split(' ');
                 if(splitted[1] == splitted[1].ToLower())
                 {
-                    endpoints.Add(splitted[1]);
+                    toAdd = splitted[1];
                 }
+            }
+            if (toAdd != null)
+            {
+                endpoints.Add(toAdd);
+                refreshObservedTextBox();
             }
         }
 
@@ -105,38 +111,39 @@ namespace Stealth_Ward
         {
             if (endpointComboBox.SelectedItem == null)
                 return;
+            String toRemove = null;
             String endpoint = (String)endpointComboBox.SelectedItem;
             switch (endpoint)
             {
                 case "builtin":
-                    endpoints.Remove("async");
-                    endpoints.Remove("v1");
-                    endpoints.Remove("v2");
-                    endpoints.Remove("v3");
+                    toRemove = "async";
+                    toRemove = "v1";
+                    toRemove = "v2";
+                    toRemove = "v3";
                     break;
                 case "cookie-jar":
-                    endpoints.Remove("cookie-jar");
+                    toRemove = "cookie-jar";
                     break;
                 case "data-store":
-                    endpoints.Remove("data-store");
+                    toRemove = "data-store";
                     break;
                 case "Plugin Manager":
-                    endpoints.Remove("plugin-manager");
+                    toRemove = "plugin-manager";
                     break;
                 case "Plugin Patcher":
-                    endpoints.Remove("patcher");
+                    toRemove = "patcher";
                     break;
                 case "performance":
-                    endpoints.Remove("performance");
+                    toRemove = "performance";
                     break;
                 case "riotclient":
-                    endpoints.Remove("riotclient");
+                    toRemove = "riotclient";
                     break;
                 case "system":
-                    endpoints.Remove("system");
+                    toRemove = "system";
                     break;
                 case "telemetry":
-                    endpoints.Remove("telemetry");
+                    toRemove = "telemetry";
                     break;
             }
 
@@ -145,8 +152,24 @@ namespace Stealth_Ward
                 String[] splitted = endpoint.Split(' ');
                 if (splitted[1] == splitted[1].ToLower())
                 {
-                    endpoints.Remove(splitted[1]);
+                    toRemove = splitted[1];
                 }
+            }
+
+            if (toRemove != null)
+            {
+                endpoints.Remove(toRemove);
+                refreshObservedTextBox();
+            }
+        }
+
+        private void refreshObservedTextBox()
+        {
+            observedTextBox.Clear();
+            foreach (var endpoint in endpoints)
+            {
+                observedTextBox.AppendText(endpoint);
+                observedTextBox.AppendText(Environment.NewLine);
             }
         }
     }

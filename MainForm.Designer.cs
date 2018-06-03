@@ -35,6 +35,8 @@
             this.loggingTextBox = new MetroFramework.Controls.MetroTextBox();
             this.observeAllToggle = new MetroFramework.Controls.MetroToggle();
             this.oberseAllText = new MetroFramework.Controls.MetroLabel();
+            this.observedTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.currentlyObservedtext = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // endpointComboBox
@@ -190,16 +192,40 @@
             this.oberseAllText.AutoSize = true;
             this.oberseAllText.Location = new System.Drawing.Point(693, 144);
             this.oberseAllText.Name = "oberseAllText";
-            this.oberseAllText.Size = new System.Drawing.Size(157, 20);
+            this.oberseAllText.Size = new System.Drawing.Size(169, 20);
             this.oberseAllText.TabIndex = 5;
-            this.oberseAllText.Text = "Observe all the updates";
+            this.oberseAllText.Text = "Observe all the endpoints";
             this.oberseAllText.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // observedTextBox
+            // 
+            this.observedTextBox.AccessibleName = "logging";
+            this.observedTextBox.Location = new System.Drawing.Point(693, 231);
+            this.observedTextBox.Multiline = true;
+            this.observedTextBox.Name = "observedTextBox";
+            this.observedTextBox.ReadOnly = true;
+            this.observedTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.observedTextBox.Size = new System.Drawing.Size(306, 196);
+            this.observedTextBox.TabIndex = 6;
+            this.observedTextBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // currentlyObservedtext
+            // 
+            this.currentlyObservedtext.AutoSize = true;
+            this.currentlyObservedtext.Location = new System.Drawing.Point(746, 199);
+            this.currentlyObservedtext.Name = "currentlyObservedtext";
+            this.currentlyObservedtext.Size = new System.Drawing.Size(197, 20);
+            this.currentlyObservedtext.TabIndex = 7;
+            this.currentlyObservedtext.Text = "Currently observed endpoints:";
+            this.currentlyObservedtext.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 457);
+            this.Controls.Add(this.currentlyObservedtext);
+            this.Controls.Add(this.observedTextBox);
             this.Controls.Add(this.oberseAllText);
             this.Controls.Add(this.observeAllToggle);
             this.Controls.Add(this.loggingTextBox);
@@ -224,6 +250,8 @@
         private MetroFramework.Controls.MetroTextBox loggingTextBox;
         private MetroFramework.Controls.MetroToggle observeAllToggle;
         private MetroFramework.Controls.MetroLabel oberseAllText;
+        private MetroFramework.Controls.MetroTextBox observedTextBox;
+        private MetroFramework.Controls.MetroLabel currentlyObservedtext;
     }
 }
 
