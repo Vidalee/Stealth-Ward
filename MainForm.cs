@@ -12,10 +12,6 @@ namespace Stealth_Ward
         {
             dispatcher = Dispatcher.CurrentDispatcher;
             InitializeComponent();
-            if (null == System.Windows.Application.Current)
-            {
-                new System.Windows.Application();
-            }
             Program.controller.Start();
         }
 

@@ -28,10 +28,6 @@ namespace Stealth_Ward
 
         private static void lcuCheck()
         {
-            if (null == System.Windows.Application.Current)
-            {
-                new System.Windows.Application();
-            }
             Console.WriteLine("Controller launched");
             var lcuPath = LeagueMonitor.GetLCUPath();
             if (lcuPath == null)
@@ -39,7 +35,6 @@ namespace Stealth_Ward
                 MessageBox.Show("Could not determine path to LCU!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return; // Abort
             }
-            Console.WriteLine(lcuPath);
             LeagueMonitor leagueMonitor = new LeagueMonitor(lcuPath, onLeagueStart, onLeagueStop);
         }
 
