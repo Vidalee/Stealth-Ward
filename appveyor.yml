@@ -4,3 +4,6 @@ image: Visual Studio 2017
 configuration: Debug
 before_build:
   - cmd: nuget restore -verbosity quiet
+build:
+  project: Stealth Ward.sln
+  verbosity: minimal
