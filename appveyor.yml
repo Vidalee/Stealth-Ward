@@ -3,5 +3,4 @@ version: '{branch}-{build}'
 image: Visual Studio 2017
 configuration: Debug
 before_build:
-  - cmd: CodeFileSanity.exe
   - cmd: nuget restore -verbosity quiet
